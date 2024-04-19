@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3ckeg1704ygg"]
+[gd_scene load_steps=4 format=3 uid="uid://c3ckeg1704ygg"]
 
 [ext_resource type="Script" path="res://Scripts/Root.gd" id="1_wryjm"]
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="2_k4ite"]
 [ext_resource type="Theme" uid="uid://jxo2j54d0arj" path="res://Resources/MainTheme.tres" id="2_vjmxk"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_wryjm")
 
 [node name="Game" type="CanvasLayer" parent="."]
+script = ExtResource("2_k4ite")
 
 [node name="Control" type="Control" parent="Game"]
 layout_mode = 3
@@ -16,3 +18,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_vjmxk")
+
+[node name="Button" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 981.0
+offset_top = 530.0
+offset_right = 1106.0
+offset_bottom = 609.0
+text = "NEW POT"
