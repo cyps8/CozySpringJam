@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0srgmut0o264"]
+
+[ext_resource type="Script" path="res://Scripts/PlantPot.gd" id="1_qsc8v"]
+
+[sub_resource type="Gradient" id="Gradient_0atqr"]
+offsets = PackedFloat32Array(0.647887, 0.676056)
+colors = PackedColorArray(1, 0.498039, 0, 1, 1, 0.619608, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rp2do"]
+gradient = SubResource("Gradient_0atqr")
+fill = 1
+fill_from = Vector2(0.490291, 0.504854)
+
+[node name="PlantPot" type="TextureButton"]
+offset_right = 128.0
+offset_bottom = 128.0
+texture_normal = SubResource("GradientTexture2D_rp2do")
+stretch_mode = 0
+script = ExtResource("1_qsc8v")
+
+[connection signal="button_down" from="." to="." method="Pickup"]
+[connection signal="button_up" from="." to="." method="Drop"]
