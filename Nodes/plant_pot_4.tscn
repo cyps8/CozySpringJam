@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqm25royj5d56"]
+
+[ext_resource type="PackedScene" uid="uid://d0srgmut0o264" path="res://Nodes/plant_pot.tscn" id="1_0aidf"]
+[ext_resource type="Texture2D" uid="uid://dto5lngccry12" path="res://Assets/Art/Dummies/pot-4.png" id="2_0l8um"]
+
+[node name="PlantPot" instance=ExtResource("1_0aidf")]
+offset_left = -96.0
+offset_top = -223.0
+offset_right = 97.0
+offset_bottom = -1.0
+texture_normal = ExtResource("2_0l8um")
+
+[node name="PlantZone" parent="." index="0"]
+position = Vector2(98, 41)

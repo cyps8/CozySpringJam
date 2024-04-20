@@ -1,22 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3ckeg1704ygg"]
+[gd_scene load_steps=12 format=3 uid="uid://c3ckeg1704ygg"]
 
 [ext_resource type="Script" path="res://Scripts/Root.gd" id="1_wryjm"]
 [ext_resource type="Texture2D" uid="uid://c5coyxsqkwff8" path="res://Assets/Art/Test/temp_background.png" id="2_k1ijj"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="2_k4ite"]
 [ext_resource type="Theme" uid="uid://jxo2j54d0arj" path="res://Resources/MainTheme.tres" id="2_vjmxk"]
 [ext_resource type="PackedScene" uid="uid://d0srgmut0o264" path="res://Nodes/plant_pot.tscn" id="3_dha6k"]
+[ext_resource type="PackedScene" uid="uid://duq17yn88lsoy" path="res://Nodes/plant_pot_2.tscn" id="4_mg7d6"]
+[ext_resource type="PackedScene" uid="uid://cfh3s0kbq468s" path="res://Nodes/plant_pot_3.tscn" id="5_0r67b"]
+[ext_resource type="Script" path="res://Scripts/Table.gd" id="6_0ocbx"]
+[ext_resource type="PackedScene" uid="uid://dqm25royj5d56" path="res://Nodes/plant_pot_4.tscn" id="6_77l7h"]
+[ext_resource type="PackedScene" uid="uid://b38oiqsc4vjwy" path="res://Nodes/plant.tscn" id="10_dlinh"]
+[ext_resource type="Texture2D" uid="uid://dgcu4yyo4as0" path="res://Assets/Art/Dummies/fertilizer.png" id="10_n4ued"]
 
 [node name="Main" type="Node"]
+process_mode = 3
 script = ExtResource("1_wryjm")
 
 [node name="Game" type="CanvasLayer" parent="."]
+process_mode = 1
+layer = -1
 script = ExtResource("2_k4ite")
-potIns = ExtResource("3_dha6k")
+potIns = Array[PackedScene]([ExtResource("3_dha6k"), ExtResource("4_mg7d6"), ExtResource("5_0r67b"), ExtResource("6_77l7h")])
+plantIns = Array[PackedScene]([ExtResource("10_dlinh")])
 
 [node name="Sprite2D" type="Sprite2D" parent="Game"]
 position = Vector2(962.25, 541)
 scale = Vector2(1.18492, 1.078)
 texture = ExtResource("2_k1ijj")
+
+[node name="Fertilizer" type="Sprite2D" parent="Game"]
+position = Vector2(1167, 293)
+scale = Vector2(0.505525, 0.504808)
+texture = ExtResource("10_n4ued")
+
+[node name="Fertilizer2" type="Sprite2D" parent="Game"]
+position = Vector2(1257, 292)
+scale = Vector2(0.505525, 0.504808)
+texture = ExtResource("10_n4ued")
 
 [node name="Control" type="Control" parent="Game"]
 layout_mode = 3
@@ -27,12 +47,130 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_vjmxk")
 
+[node name="Pot1" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1027.0
+offset_top = 2.0
+offset_right = 1156.0
+offset_bottom = 122.0
+text = "POT1"
+
+[node name="Pot5" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1059.0
+offset_top = 357.0
+offset_right = 1188.0
+offset_bottom = 408.0
+text = "SEED1"
+
+[node name="Pot2" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1167.0
+offset_top = 6.0
+offset_right = 1296.0
+offset_bottom = 126.0
+text = "POT2"
+
+[node name="Pot3" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1307.0
+offset_top = 2.0
+offset_right = 1436.0
+offset_bottom = 122.0
+text = "POT3"
+
+[node name="Pot4" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1447.0
+offset_top = 4.0
+offset_right = 1576.0
+offset_bottom = 124.0
+text = "POT4"
+
 [node name="Button" type="Button" parent="Game/Control"]
 layout_mode = 0
-offset_left = 1084.0
-offset_top = 220.0
-offset_right = 1213.0
-offset_bottom = 340.0
-text = "POTS"
+offset_left = 22.0
+offset_top = 13.0
+offset_right = 140.0
+offset_bottom = 106.0
+text = "PAUSE"
 
-[connection signal="button_down" from="Game/Control/Button" to="Game" method="SpawnPot"]
+[node name="Pots" type="Node2D" parent="Game"]
+
+[node name="Table" type="Area2D" parent="." groups=["Table"]]
+script = ExtResource("6_0ocbx")
+depthBack = 0.6
+
+[node name="poly" type="CollisionPolygon2D" parent="Table"]
+position = Vector2(2, 30)
+polygon = PackedVector2Array(-28, 901, 1968, 895, 1784, 697, 155, 710)
+
+[node name="LightTable" type="Area2D" parent="." groups=["Table"]]
+script = ExtResource("6_0ocbx")
+depthFront = 0.9
+depthBack = 0.95
+
+[node name="poly" type="CollisionPolygon2D" parent="LightTable"]
+position = Vector2(93, -203)
+polygon = PackedVector2Array(83, 809, 925, 811, 857, 722, 155, 710)
+
+[node name="LightTable2" type="Area2D" parent="." groups=["Table"]]
+script = ExtResource("6_0ocbx")
+depthFront = 0.9
+depthBack = 0.95
+
+[node name="poly" type="CollisionPolygon2D" parent="LightTable2"]
+position = Vector2(80, -450)
+polygon = PackedVector2Array(99, 806, 913, 815, 835, 748, 153, 740)
+
+[node name="NightTable" type="Area2D" parent="." groups=["Table"]]
+script = ExtResource("6_0ocbx")
+depthFront = 0.9
+depthBack = 0.95
+
+[node name="poly" type="CollisionPolygon2D" parent="NightTable"]
+position = Vector2(1077, -375)
+polygon = PackedVector2Array(398, 805, 832, 809, 795, 756, 444, 753)
+
+[node name="NightTable2" type="Area2D" parent="." groups=["Table"]]
+script = ExtResource("6_0ocbx")
+depthFront = 0.9
+depthBack = 0.95
+
+[node name="poly" type="CollisionPolygon2D" parent="NightTable2"]
+position = Vector2(1068, -129)
+polygon = PackedVector2Array(398, 806, 839, 815, 795, 756, 444, 753)
+
+[node name="Pause" type="CanvasLayer" parent="."]
+layer = 10
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.223529)
+
+[node name="Panel" type="Panel" parent="Pause"]
+offset_left = 786.0
+offset_top = 307.0
+offset_right = 1091.0
+offset_bottom = 758.0
+
+[node name="Button" type="Button" parent="Pause/Panel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 25.0
+offset_right = 270.0
+offset_bottom = 107.0
+text = "RESUME"
+
+[connection signal="button_down" from="Game/Control/Pot1" to="Game" method="SpawnPot" binds= [0]]
+[connection signal="button_down" from="Game/Control/Pot5" to="Game" method="SpawnPlant" binds= [0]]
+[connection signal="button_down" from="Game/Control/Pot2" to="Game" method="SpawnPot" binds= [1]]
+[connection signal="button_down" from="Game/Control/Pot3" to="Game" method="SpawnPot" binds= [2]]
+[connection signal="button_down" from="Game/Control/Pot4" to="Game" method="SpawnPot" binds= [3]]
+[connection signal="pressed" from="Game/Control/Button" to="." method="TogglePause"]
+[connection signal="pressed" from="Pause/Panel/Button" to="." method="TogglePause"]

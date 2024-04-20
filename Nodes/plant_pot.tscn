@@ -1,22 +1,33 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0srgmut0o264"]
 
+[ext_resource type="Texture2D" uid="uid://bbv6t0yoex3ec" path="res://Assets/Art/Dummies/pot-1.png" id="1_3ftq1"]
 [ext_resource type="Script" path="res://Scripts/PlantPot.gd" id="1_qsc8v"]
 
-[sub_resource type="Gradient" id="Gradient_0atqr"]
-offsets = PackedFloat32Array(0.647887, 0.676056)
-colors = PackedColorArray(1, 0.498039, 0, 1, 1, 0.619608, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rp2do"]
-gradient = SubResource("Gradient_0atqr")
-fill = 1
-fill_from = Vector2(0.490291, 0.504854)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otna0"]
+size = Vector2(159, 10)
 
 [node name="PlantPot" type="TextureButton"]
-offset_right = 128.0
-offset_bottom = 128.0
-texture_normal = SubResource("GradientTexture2D_rp2do")
-stretch_mode = 0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -222.0
+offset_right = 120.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("1_3ftq1")
+ignore_texture_size = true
+stretch_mode = 4
 script = ExtResource("1_qsc8v")
+
+[node name="PlantZone" type="Area2D" parent="."]
+position = Vector2(115, 44)
+
+[node name="Shape" type="CollisionShape2D" parent="PlantZone"]
+shape = SubResource("RectangleShape2D_otna0")
 
 [connection signal="button_down" from="." to="." method="Pickup"]
 [connection signal="button_up" from="." to="." method="Drop"]
+[connection signal="area_entered" from="PlantZone" to="." method="Plant"]
