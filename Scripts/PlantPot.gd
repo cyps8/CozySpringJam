@@ -84,3 +84,7 @@ func Plant(area: Area2D):
 		plantRef.get_parent().remove_child(plantRef)
 		add_child(plantRef)
 		plantRef.position = $PlantZone.position
+
+func _exit_tree():
+	if Game.ins.currentPlants.has(self):
+		Game.ins.currentPlants.remove_at(Game.ins.currentPlants.find(self))

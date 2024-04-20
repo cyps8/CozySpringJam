@@ -3,6 +3,8 @@ extends Control
 @export var requests: Array[Request]
 @export var customer: PackedScene
 
+@export var currentCustomers: Array[Customer]
+
 func _ready():
 	NewCustomer()
 
@@ -11,3 +13,5 @@ func NewCustomer():
 	newCustomer.request = requests[randi() % requests.size()]
 	newCustomer.Ask()
 	add_child(newCustomer)
+
+	currentCustomers.append(newCustomer)

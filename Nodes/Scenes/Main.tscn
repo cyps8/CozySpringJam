@@ -1,7 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://c3ckeg1704ygg"]
 
 [ext_resource type="Script" path="res://Scripts/Root.gd" id="1_wryjm"]
-[ext_resource type="Texture2D" uid="uid://c5coyxsqkwff8" path="res://Assets/Art/Test/temp_background.png" id="2_k1ijj"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="2_k4ite"]
 [ext_resource type="Theme" uid="uid://jxo2j54d0arj" path="res://Resources/MainTheme.tres" id="2_vjmxk"]
 [ext_resource type="PackedScene" uid="uid://d0srgmut0o264" path="res://Nodes/plant_pot.tscn" id="3_dha6k"]
@@ -9,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cfh3s0kbq468s" path="res://Nodes/plant_pot_3.tscn" id="5_0r67b"]
 [ext_resource type="Script" path="res://Scripts/Table.gd" id="6_0ocbx"]
 [ext_resource type="PackedScene" uid="uid://dqm25royj5d56" path="res://Nodes/plant_pot_4.tscn" id="6_77l7h"]
+[ext_resource type="Texture2D" uid="uid://d2238qg8td0td" path="res://Assets/Art/scene.png" id="8_bvwbh"]
 [ext_resource type="PackedScene" uid="uid://b38oiqsc4vjwy" path="res://Nodes/plant.tscn" id="10_dlinh"]
 [ext_resource type="Texture2D" uid="uid://dgcu4yyo4as0" path="res://Assets/Art/Dummies/fertilizer.png" id="10_n4ued"]
 [ext_resource type="Texture2D" uid="uid://biwnsr02664kt" path="res://Assets/Art/Dummies/watercan.png" id="11_bmpav"]
@@ -60,16 +60,15 @@ script = ExtResource("2_k4ite")
 potIns = Array[PackedScene]([ExtResource("3_dha6k"), ExtResource("4_mg7d6"), ExtResource("5_0r67b"), ExtResource("6_77l7h")])
 plantIns = Array[PackedScene]([ExtResource("10_dlinh")])
 
-[node name="Sprite2D" type="Sprite2D" parent="Game"]
-position = Vector2(962.25, 541)
-scale = Vector2(1.18492, 1.078)
-texture = ExtResource("2_k1ijj")
+[node name="Background" type="Sprite2D" parent="Game"]
+position = Vector2(960, 540)
+texture = ExtResource("8_bvwbh")
 
 [node name="Day" type="Label" parent="Game"]
-offset_left = 282.0
-offset_top = 6.0
-offset_right = 394.0
-offset_bottom = 61.0
+offset_left = 193.0
+offset_top = 15.0
+offset_right = 305.0
+offset_bottom = 70.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.439216)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
@@ -78,7 +77,7 @@ theme_override_font_sizes/font_size = 40
 text = "DAY 1"
 
 [node name="Clock" type="Sprite2D" parent="Game"]
-position = Vector2(219, 73)
+position = Vector2(224, 246)
 texture = SubResource("GradientTexture2D_1sfet")
 
 [node name="Hour" type="Sprite2D" parent="Game/Clock"]
@@ -90,12 +89,12 @@ texture = SubResource("GradientTexture2D_hdch2")
 offset = Vector2(0, -24)
 
 [node name="Fertilizer" type="Sprite2D" parent="Game"]
-position = Vector2(1167, 293)
+position = Vector2(1221, 331)
 scale = Vector2(0.505525, 0.504808)
 texture = ExtResource("10_n4ued")
 
 [node name="Fertilizer2" type="Sprite2D" parent="Game"]
-position = Vector2(1257, 292)
+position = Vector2(1312, 334)
 scale = Vector2(0.505525, 0.504808)
 texture = ExtResource("10_n4ued")
 
@@ -110,42 +109,42 @@ theme = ExtResource("2_vjmxk")
 
 [node name="Pot1" type="Button" parent="Game/Control"]
 layout_mode = 0
-offset_left = 1027.0
-offset_top = 2.0
-offset_right = 1156.0
-offset_bottom = 122.0
+offset_left = 1046.0
+offset_top = 80.0
+offset_right = 1175.0
+offset_bottom = 200.0
 text = "POT1"
 
 [node name="Pot5" type="Button" parent="Game/Control"]
 layout_mode = 0
-offset_left = 1059.0
-offset_top = 357.0
-offset_right = 1188.0
-offset_bottom = 408.0
+offset_left = 1174.0
+offset_top = 391.0
+offset_right = 1277.0
+offset_bottom = 451.0
 text = "SEED1"
 
 [node name="Pot2" type="Button" parent="Game/Control"]
 layout_mode = 0
-offset_left = 1167.0
-offset_top = 6.0
-offset_right = 1296.0
-offset_bottom = 126.0
+offset_left = 1192.0
+offset_top = 76.0
+offset_right = 1321.0
+offset_bottom = 196.0
 text = "POT2"
 
 [node name="Pot3" type="Button" parent="Game/Control"]
 layout_mode = 0
-offset_left = 1307.0
-offset_top = 2.0
-offset_right = 1436.0
-offset_bottom = 122.0
+offset_left = 1341.0
+offset_top = 76.0
+offset_right = 1470.0
+offset_bottom = 196.0
 text = "POT3"
 
 [node name="Pot4" type="Button" parent="Game/Control"]
 layout_mode = 0
-offset_left = 1447.0
-offset_top = 4.0
-offset_right = 1576.0
-offset_bottom = 124.0
+offset_left = 1491.0
+offset_top = 80.0
+offset_right = 1620.0
+offset_bottom = 200.0
 text = "POT4"
 
 [node name="Button" type="Button" parent="Game/Control"]
@@ -159,10 +158,10 @@ text = "PAUSE"
 [node name="WateringCan" type="TextureButton" parent="Game/Control"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 1047.0
-offset_top = 374.0
-offset_right = 1417.0
-offset_bottom = 794.0
+offset_left = 1095.0
+offset_top = 495.0
+offset_right = 1465.0
+offset_bottom = 915.0
 pivot_offset = Vector2(185, 210)
 texture_normal = ExtResource("11_bmpav")
 stretch_mode = 4
@@ -196,8 +195,8 @@ script = ExtResource("6_0ocbx")
 depthBack = 0.6
 
 [node name="poly" type="CollisionPolygon2D" parent="Table"]
-position = Vector2(2, 30)
-polygon = PackedVector2Array(-28, 901, 1968, 895, 1784, 697, 155, 710)
+position = Vector2(-16, 85)
+polygon = PackedVector2Array(-71, 846, 1968, 849, 1959, 715, 155, 715)
 
 [node name="LightTable" type="Area2D" parent="." groups=["Table"]]
 script = ExtResource("6_0ocbx")
@@ -206,7 +205,7 @@ depthBack = 0.95
 
 [node name="poly" type="CollisionPolygon2D" parent="LightTable"]
 position = Vector2(93, -203)
-polygon = PackedVector2Array(83, 809, 925, 811, 857, 722, 155, 710)
+polygon = PackedVector2Array(290, 941, 922, 947, 843, 887, 386, 887)
 
 [node name="LightTable2" type="Area2D" parent="." groups=["Table"]]
 script = ExtResource("6_0ocbx")
@@ -215,7 +214,7 @@ depthBack = 0.95
 
 [node name="poly" type="CollisionPolygon2D" parent="LightTable2"]
 position = Vector2(80, -450)
-polygon = PackedVector2Array(99, 806, 913, 815, 835, 748, 153, 740)
+polygon = PackedVector2Array(349, 930, 879, 931, 868, 902, 403, 903)
 
 [node name="NightTable" type="Area2D" parent="." groups=["Table"]]
 script = ExtResource("6_0ocbx")
@@ -224,7 +223,7 @@ depthBack = 0.95
 
 [node name="poly" type="CollisionPolygon2D" parent="NightTable"]
 position = Vector2(1077, -375)
-polygon = PackedVector2Array(398, 805, 832, 809, 795, 756, 444, 753)
+polygon = PackedVector2Array(446, 951, 724, 951, 627, 929, 443, 930)
 
 [node name="WaterTable" type="Area2D" parent="." groups=["Table"]]
 position = Vector2(-420, 230)
@@ -234,7 +233,7 @@ depthBack = 0.95
 
 [node name="poly" type="CollisionPolygon2D" parent="WaterTable"]
 position = Vector2(1080, -363)
-polygon = PackedVector2Array(415, 796, 763, 802, 738, 757, 459, 755)
+polygon = PackedVector2Array(522, 913, 795, 913, 746, 864, 519, 866)
 
 [node name="NightTable2" type="Area2D" parent="." groups=["Table"]]
 script = ExtResource("6_0ocbx")
@@ -243,7 +242,7 @@ depthBack = 0.95
 
 [node name="poly" type="CollisionPolygon2D" parent="NightTable2"]
 position = Vector2(1068, -129)
-polygon = PackedVector2Array(406, 802, 839, 815, 795, 756, 445, 756)
+polygon = PackedVector2Array(458, 907, 735, 906, 636, 857, 453, 863)
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 10

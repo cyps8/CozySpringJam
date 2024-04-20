@@ -10,6 +10,8 @@ var objs: Node2D
 
 @export var plantIns: Array[PackedScene]
 
+@export var currentPlants: Array[PlantPot]
+
 var day: int
 
 var time: float
@@ -44,7 +46,9 @@ func SpawnPot(potId: int):
 	newPot.grabbed = true
 	newPot.GenerateClickMask()
 	newPot.mouseOffset = newPot.size / 2
-	$objs.add_child(newPot)
+	objs.add_child(newPot)
+
+	currentPlants.append(newPot)
 
 func SpawnPlant(plantId: int):
 	var newPlant: Plant = plantIns[plantId].instantiate()
@@ -66,3 +70,13 @@ func SortObjs():
 func UpdateClock():
 	hour.rotation = deg_to_rad(720.0 * (time/ 120.0))
 	minute.rotation = deg_to_rad(12.0 * 720.0 * (time/ 120.0))
+
+func TryTakePlant() -> bool:
+	print("try")
+	for plant in currentPlants:
+		if plant.grabbed:
+			plant.grabbed = false
+			plant.queue_free()
+			currentPlants.remove_at(currentPlants.find(plant))
+			return true
+	return false
