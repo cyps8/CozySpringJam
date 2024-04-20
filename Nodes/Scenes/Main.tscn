@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3ckeg1704ygg"]
+[gd_scene load_steps=24 format=3 uid="uid://c3ckeg1704ygg"]
 
 [ext_resource type="Script" path="res://Scripts/Root.gd" id="1_wryjm"]
 [ext_resource type="Texture2D" uid="uid://c5coyxsqkwff8" path="res://Assets/Art/Test/temp_background.png" id="2_k1ijj"]
@@ -11,6 +11,43 @@
 [ext_resource type="PackedScene" uid="uid://dqm25royj5d56" path="res://Nodes/plant_pot_4.tscn" id="6_77l7h"]
 [ext_resource type="PackedScene" uid="uid://b38oiqsc4vjwy" path="res://Nodes/plant.tscn" id="10_dlinh"]
 [ext_resource type="Texture2D" uid="uid://dgcu4yyo4as0" path="res://Assets/Art/Dummies/fertilizer.png" id="10_n4ued"]
+[ext_resource type="Texture2D" uid="uid://biwnsr02664kt" path="res://Assets/Art/Dummies/watercan.png" id="11_bmpav"]
+[ext_resource type="Script" path="res://Scripts/WateringCan.gd" id="11_iqlia"]
+[ext_resource type="Script" path="res://Scripts/Customers.gd" id="13_sfrjq"]
+[ext_resource type="Resource" uid="uid://ct86j1prlrcf4" path="res://Resources/Requests/test.tres" id="14_4lit3"]
+[ext_resource type="PackedScene" uid="uid://cu8nhynctn34o" path="res://Nodes/customer.tscn" id="15_shs8v"]
+
+[sub_resource type="Gradient" id="Gradient_d3rph"]
+offsets = PackedFloat32Array(0.603896, 0.62987, 0.662338)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1sfet"]
+gradient = SubResource("Gradient_d3rph")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_urfne"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a4bht"]
+gradient = SubResource("Gradient_urfne")
+width = 6
+height = 34
+
+[sub_resource type="Gradient" id="Gradient_duyoe"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hdch2"]
+gradient = SubResource("Gradient_duyoe")
+width = 4
+height = 52
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qcrin"]
+radius = 51.6236
 
 [node name="Main" type="Node"]
 process_mode = 3
@@ -27,6 +64,30 @@ plantIns = Array[PackedScene]([ExtResource("10_dlinh")])
 position = Vector2(962.25, 541)
 scale = Vector2(1.18492, 1.078)
 texture = ExtResource("2_k1ijj")
+
+[node name="Day" type="Label" parent="Game"]
+offset_left = 282.0
+offset_top = 6.0
+offset_right = 394.0
+offset_bottom = 61.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.439216)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 40
+text = "DAY 1"
+
+[node name="Clock" type="Sprite2D" parent="Game"]
+position = Vector2(219, 73)
+texture = SubResource("GradientTexture2D_1sfet")
+
+[node name="Hour" type="Sprite2D" parent="Game/Clock"]
+texture = SubResource("GradientTexture2D_a4bht")
+offset = Vector2(0, -14)
+
+[node name="Minute" type="Sprite2D" parent="Game/Clock"]
+texture = SubResource("GradientTexture2D_hdch2")
+offset = Vector2(0, -24)
 
 [node name="Fertilizer" type="Sprite2D" parent="Game"]
 position = Vector2(1167, 293)
@@ -95,7 +156,40 @@ offset_right = 140.0
 offset_bottom = 106.0
 text = "PAUSE"
 
-[node name="Pots" type="Node2D" parent="Game"]
+[node name="WateringCan" type="TextureButton" parent="Game/Control"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1047.0
+offset_top = 374.0
+offset_right = 1417.0
+offset_bottom = 794.0
+pivot_offset = Vector2(185, 210)
+texture_normal = ExtResource("11_bmpav")
+stretch_mode = 4
+script = ExtResource("11_iqlia")
+
+[node name="Water" type="Area2D" parent="Game/Control/WateringCan"]
+position = Vector2(205, 205)
+
+[node name="Shape" type="CollisionShape2D" parent="Game/Control/WateringCan/Water"]
+shape = SubResource("CircleShape2D_qcrin")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Control/WateringCan"]
+position = Vector2(211, 207)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_bmpav")
+
+[node name="Customers" type="Control" parent="Game/Control"]
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 187.0
+offset_right = 538.0
+offset_bottom = 739.0
+script = ExtResource("13_sfrjq")
+requests = Array[Resource("res://Scripts/Request.gd")]([ExtResource("14_4lit3")])
+customer = ExtResource("15_shs8v")
+
+[node name="SortedObjects" type="Node2D" parent="Game"]
 
 [node name="Table" type="Area2D" parent="." groups=["Table"]]
 script = ExtResource("6_0ocbx")
@@ -132,6 +226,16 @@ depthBack = 0.95
 position = Vector2(1077, -375)
 polygon = PackedVector2Array(398, 805, 832, 809, 795, 756, 444, 753)
 
+[node name="WaterTable" type="Area2D" parent="." groups=["Table"]]
+position = Vector2(-420, 230)
+script = ExtResource("6_0ocbx")
+depthFront = 0.9
+depthBack = 0.95
+
+[node name="poly" type="CollisionPolygon2D" parent="WaterTable"]
+position = Vector2(1080, -363)
+polygon = PackedVector2Array(415, 796, 763, 802, 738, 757, 459, 755)
+
 [node name="NightTable2" type="Area2D" parent="." groups=["Table"]]
 script = ExtResource("6_0ocbx")
 depthFront = 0.9
@@ -139,7 +243,7 @@ depthBack = 0.95
 
 [node name="poly" type="CollisionPolygon2D" parent="NightTable2"]
 position = Vector2(1068, -129)
-polygon = PackedVector2Array(398, 806, 839, 815, 795, 756, 444, 753)
+polygon = PackedVector2Array(406, 802, 839, 815, 795, 756, 445, 756)
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 10
@@ -173,4 +277,8 @@ text = "RESUME"
 [connection signal="button_down" from="Game/Control/Pot3" to="Game" method="SpawnPot" binds= [2]]
 [connection signal="button_down" from="Game/Control/Pot4" to="Game" method="SpawnPot" binds= [3]]
 [connection signal="pressed" from="Game/Control/Button" to="." method="TogglePause"]
+[connection signal="button_down" from="Game/Control/WateringCan" to="Game/Control/WateringCan" method="Pickup"]
+[connection signal="button_up" from="Game/Control/WateringCan" to="Game/Control/WateringCan" method="Drop"]
+[connection signal="area_entered" from="Game/Control/WateringCan/Water" to="Game/Control/WateringCan" method="PotEnter"]
+[connection signal="area_exited" from="Game/Control/WateringCan/Water" to="Game/Control/WateringCan" method="PotExit"]
 [connection signal="pressed" from="Pause/Panel/Button" to="." method="TogglePause"]

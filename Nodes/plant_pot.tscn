@@ -22,7 +22,7 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("1_qsc8v")
 
-[node name="PlantZone" type="Area2D" parent="."]
+[node name="PlantZone" type="Area2D" parent="." groups=["Pot"]]
 position = Vector2(115, 44)
 
 [node name="Shape" type="CollisionShape2D" parent="PlantZone"]

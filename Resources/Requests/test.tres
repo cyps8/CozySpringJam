@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Request" load_steps=2 format=3 uid="uid://ct86j1prlrcf4"]
+
+[ext_resource type="Script" path="res://Scripts/Request.gd" id="1_56pig"]
+
+[resource]
+script = ExtResource("1_56pig")
+text = "Hii, please gib plant :3"
+plantWanted = 0
+colourWanted = Color(1, 0, 0, 1)
