@@ -54,6 +54,7 @@ func _process(delta):
 	if time > 240.0:
 		time -= 240.0
 		day += 1
+		DayPulse()
 		$Day.text = "DAY " + str(day)
 		for cus in Customers.ins.currentCustomers:
 			if cus.nextDay > 0:
@@ -61,6 +62,11 @@ func _process(delta):
 	UpdateClock()
 	UpdateTimeShader()
 	Music()
+
+func DayPulse():
+	var tween: Tween = create_tween()
+	$Day.scale = Vector2(1.1, 1.1)
+	tween.tween_property($Day, "scale", Vector2(1.0, 1.0), 0.4).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
 
 func SpawnPot(potGroup: int):
 	var potId: int = 0
