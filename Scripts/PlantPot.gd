@@ -37,8 +37,11 @@ func _process(dt):
 	TableRay()
 
 	if onTable:
+		$Shadow.visible = true
 		if Input.is_action_pressed("Interact"):
 			UpdateScale()
+	else:
+		$Shadow.visible = false
 
 	if stage >= 0 && stage < 3 && plantRef:
 		TryGrow(dt)

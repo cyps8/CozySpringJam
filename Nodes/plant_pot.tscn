@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0srgmut0o264"]
+[gd_scene load_steps=12 format=3 uid="uid://d0srgmut0o264"]
 
 [ext_resource type="Texture2D" uid="uid://deibxi3srosfe" path="res://Assets/Art/Pots/pot-1.png" id="1_8xnlu"]
 [ext_resource type="Script" path="res://Scripts/PlantPot.gd" id="1_qsc8v"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://n5fsy0qe1c1i" path="res://Assets/Art/Pots/stage-2.png" id="7_2x6sq"]
 [ext_resource type="Texture2D" uid="uid://bdykuhxqj5wbb" path="res://Assets/Art/Pots/stage-2-3.png" id="8_d55r6"]
 [ext_resource type="Texture2D" uid="uid://w850402s1r11" path="res://Assets/Art/Pots/stage-3.png" id="9_ovybx"]
+[ext_resource type="Texture2D" uid="uid://ctykyd1xiclip" path="res://Assets/Art/Pots/shadow-1.png" id="10_6qxau"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_otna0"]
 size = Vector2(159, 8)
@@ -41,6 +42,12 @@ shape = SubResource("RectangleShape2D_otna0")
 [node name="Stage" type="Sprite2D" parent="."]
 position = Vector2(124, 100)
 texture = ExtResource("3_uv58h")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(119, 131)
+scale = Vector2(0.727273, 0.675214)
+texture = ExtResource("10_6qxau")
 
 [connection signal="button_down" from="." to="." method="Pickup"]
 [connection signal="button_up" from="." to="." method="Drop"]

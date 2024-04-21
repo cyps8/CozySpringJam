@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c3ckeg1704ygg"]
+[gd_scene load_steps=39 format=3 uid="uid://c3ckeg1704ygg"]
 
 [ext_resource type="Script" path="res://Scripts/Root.gd" id="1_wryjm"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="2_k4ite"]
@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://di07vxnbxh74g" path="res://Assets/Audio/Music/Moonlit_Blossoms.ogg" id="17_swupm"]
 [ext_resource type="Script" path="res://Scripts/VolumeSlider.gd" id="26_nr4b5"]
 [ext_resource type="AudioStream" uid="uid://buc40cvxsnh7b" path="res://Assets/Audio/Music/Pruning_Petals_Loop.ogg" id="27_rgr4j"]
+[ext_resource type="Texture2D" uid="uid://edlcw3m2pj5x" path="res://Assets/Art/Shelf/warm-lamp.png" id="30_82ayk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ajwoo"]
 shader = ExtResource("2_r81ov")
@@ -68,6 +69,8 @@ height = 52
 fill = 1
 fill_from = Vector2(0.5, 0.75)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_612ch"]
+
 [node name="Main" type="Node"]
 process_mode = 3
 script = ExtResource("1_wryjm")
@@ -94,8 +97,13 @@ dayMusic = Array[AudioStream]([ExtResource("27_rgr4j")])
 nightMusic = Array[AudioStream]([ExtResource("17_swupm")])
 
 [node name="Background" type="Sprite2D" parent="Game"]
+z_index = -1
 position = Vector2(960, 540)
 texture = ExtResource("8_bvwbh")
+
+[node name="Warm-lamp" type="Sprite2D" parent="Game"]
+position = Vector2(1651, 395)
+texture = ExtResource("30_82ayk")
 
 [node name="Day" type="Label" parent="Game"]
 offset_left = 25.0
@@ -153,6 +161,10 @@ offset_top = 391.0
 offset_right = 1277.0
 offset_bottom = 451.0
 mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898039, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_612ch")
 text = "SEEDS"
 flat = true
 

@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Customer.gd" id="1_wtmp4"]
 
 [node name="Customer" type="Panel"]
+z_index = 1
 offset_left = 15.0
 offset_top = 34.0
 offset_right = 500.0

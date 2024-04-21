@@ -15,3 +15,7 @@ scale = Vector2(0.88, 1)
 
 [node name="Stage" parent="." index="1"]
 position = Vector2(123, 106)
+
+[node name="Shadow" parent="." index="2"]
+position = Vector2(119.81, 167.761)
+scale = Vector2(0.619529, 0.521367)
