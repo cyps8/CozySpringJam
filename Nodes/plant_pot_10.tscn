@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cohr3kujorbsj"]
+
+[ext_resource type="PackedScene" uid="uid://d0srgmut0o264" path="res://Nodes/plant_pot.tscn" id="1_p8oep"]
+[ext_resource type="Texture2D" uid="uid://52f8b5ww5hio" path="res://Assets/Art/Pots/pot-10.png" id="2_02q5l"]
+
+[node name="PlantPot" instance=ExtResource("1_p8oep")]
+offset_left = -123.5
+offset_top = -175.0
+offset_right = 123.5
+texture_normal = ExtResource("2_02q5l")
+
+[node name="PlantZone" parent="." index="0"]
+position = Vector2(122, 58)
+
+[node name="Stage" parent="." index="1"]
+position = Vector2(124, 125)

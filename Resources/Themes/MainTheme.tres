@@ -1,0 +1,126 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://jxo2j54d0arj"]
+
+[ext_resource type="FontFile" uid="uid://b0tp8ph87ew8g" path="res://Assets/Art/Fonts/Handlee-Regular.ttf" id="1_ijmbf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo86f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.996078, 0.992157, 0.945098, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bolsr"]
+bg_color = Color(0.968627, 0.8, 0.631373, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.564706, 0.337255, 0.164706, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8nt7"]
+bg_color = Color(0.792157, 0.592157, 0.384314, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.564706, 0.337255, 0.164706, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufv7m"]
+bg_color = Color(1, 0.894118, 0.72549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.564706, 0.337255, 0.164706, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40b2x"]
+bg_color = Color(1, 0.827451, 0.545098, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.752941, 0.254902, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07qt4"]
+bg_color = Color(1, 0.898039, 0.737255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.827451, 0.529412, 1)
+corner_radius_top_left = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8cc2"]
+bg_color = Color(0.545098, 0.388235, 0.219608, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.47451, 0.278431, 0.129412, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqpso"]
+bg_color = Color(0.968627, 0.968627, 0.941176, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_size = 2
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgm7d"]
+content_margin_left = 5.0
+content_margin_right = 5.0
+
+[resource]
+default_font = ExtResource("1_ijmbf")
+default_font_size = 20
+Button/colors/font_color = Color(0.176471, 0.176471, 0.176471, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_uo86f")
+Button/styles/hover = SubResource("StyleBoxFlat_bolsr")
+Button/styles/normal = SubResource("StyleBoxFlat_g8nt7")
+Button/styles/pressed = SubResource("StyleBoxFlat_ufv7m")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_40b2x")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_07qt4")
+HSlider/styles/slider = SubResource("StyleBoxFlat_m8cc2")
+Label/colors/font_color = Color(0.141176, 0.141176, 0.141176, 1)
+Panel/styles/panel = SubResource("StyleBoxFlat_qqpso")
+TabBar/colors/font_selected_color = Color(0.592157, 0.227451, 0.129412, 1)
+TabBar/colors/font_unselected_color = Color(0.560784, 0.560784, 0.560784, 1)
+TabBar/styles/tab_focus = SubResource("StyleBoxEmpty_mgm7d")
+TabBar/styles/tab_hovered = SubResource("StyleBoxEmpty_mgm7d")
+TabBar/styles/tab_selected = SubResource("StyleBoxEmpty_mgm7d")
+TabBar/styles/tab_unselected = SubResource("StyleBoxEmpty_mgm7d")

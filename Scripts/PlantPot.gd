@@ -16,10 +16,18 @@ var depth: float = 0.0
 
 var plantRef: Plant
 
+var stage = -1
+
+var conditionsMet: bool = false
+
+var timeToGrow = 60.0
+
+@export var stages: Array[Texture2D]
+
 func _ready():
 	pivot_offset = Vector2(size.x / 2, size.y)
 
-func _process(_delta):
+func _process(dt):
 	if grabbed: 
 		position = get_global_mouse_position() - mouseOffset
 	if firstDrop && Input.is_action_just_released("Interact"):
@@ -31,6 +39,45 @@ func _process(_delta):
 	if onTable:
 		if Input.is_action_pressed("Interact"):
 			UpdateScale()
+
+	if stage >= 0 && stage < 3 && plantRef:
+		TryGrow(dt)
+		UpdateStage()
+
+func UpdateStage():
+	match stage:
+		0:
+			if conditionsMet:
+				$Stage.texture = stages[1]
+			else:
+				$Stage.texture = stages[0]
+		1:
+			if conditionsMet:
+				$Stage.texture = stages[3]
+			else:
+				$Stage.texture = stages[2]
+		2:
+			if conditionsMet:
+				$Stage.texture = stages[5]
+			else:
+				$Stage.texture = stages[4]
+		3:
+			$Stage.texture = stages[6]
+
+func TryGrow(dt: float):
+	CheckConditions()
+	if conditionsMet:
+		timeToGrow -= dt * Game.ins.timeSpeed
+		if timeToGrow <= 0.0:
+			stage += 1
+			plantRef.GrowToStage(stage)
+			conditionsMet = false
+			timeToGrow = 60.0
+
+func CheckConditions():
+	conditionsMet = true
+	if plantRef.growConditions.GetConditionAtStage(stage, GrowConditions.Condition.WATER):
+		conditionsMet = false
 
 func GenerateClickMask():
 	var img = texture_normal.get_image()
@@ -50,6 +97,10 @@ func Pickup():
 	grabbed = true
 
 func Drop():
+	var tryGrab = Customers.ins.CheckMouse()
+	if tryGrab:
+		if tryGrab.TryGrabPot():
+			return
 	if !onTable:
 		position = lastPos
 		TableRay()
@@ -78,12 +129,13 @@ func UpdateScale():
 func Plant(area: Area2D):
 	if plantRef:
 		return
+	stage = 0
 	if area.is_in_group("Plant"):
 		plantRef = area
 		plantRef.Planted()
 		plantRef.get_parent().remove_child(plantRef)
 		add_child(plantRef)
-		plantRef.position = $PlantZone.position
+		plantRef.position = $PlantZone.position + Vector2(0, 10)
 
 func _exit_tree():
 	if Game.ins.currentPlants.has(self):

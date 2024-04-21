@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GrowConditions" load_steps=2 format=3 uid="uid://cn7j3fxj86b44"]
+
+[ext_resource type="Script" path="res://Scripts/GrowConditions.gd" id="1_2m3hk"]
+
+[resource]
+script = ExtResource("1_2m3hk")
+stage1Water = false
+stage1Sunlight = false
+stage1Darkness = false
+stage1Moonlight = false
+stage2Water = false
+stage2Sunlight = false
+stage2Darkness = false
+stage2Moonlight = false
+stage3Water = false
+stage3Sunlight = false
+stage3Darkness = false
+stage3Moonlight = false

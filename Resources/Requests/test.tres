@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_56pig")
-text = "Hii, please gib plant :3"
+text = "hii, I can take any flowers you don't want anymore! (Drag flower here to give)"
 plantWanted = 0
 colourWanted = Color(1, 0, 0, 1)

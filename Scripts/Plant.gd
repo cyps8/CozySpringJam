@@ -12,6 +12,8 @@ var blossomSprite: Sprite2D
 
 @export var blossom: Texture
 
+@export var growConditions: GrowConditions
+
 func _ready():
 
 	plantSprite = $Sprite
@@ -24,14 +26,15 @@ func Planted():
 	collision_mask = 0
 
 	var tween: Tween = create_tween()
-	tween.tween_property(plantSprite, "scale", Vector2(0.9, 0.9), 3.0)
-	tween.tween_interval(3.0)
-	tween.tween_property(plantSprite, "scale", Vector2(0.95, 0.95), 1.0)
-	tween.tween_callback(func(): plantSprite.texture = stages[1])
-	tween.tween_interval(3.0)
-	tween.tween_property(plantSprite, "scale", Vector2(1.0, 1.0), 1.0)
-	tween.tween_callback(func(): plantSprite.texture = stages[2])
-	tween.tween_callback(Blossom)
+	tween.tween_property(plantSprite, "scale", Vector2(0.4, 0.4), 3.0)
+
+func GrowToStage(stage: int):
+	if stage <= stages.size() - 1:
+		plantSprite.texture = stages[stage]
+		var tween: Tween = create_tween()
+		tween.tween_property(plantSprite, "scale", Vector2(0.4 + (0.3 * stage), 0.4 + (0.3 * stage)), 3.0)
+	else:
+		Blossom()
 
 func Blossom():
 	blossomSprite.visible = true

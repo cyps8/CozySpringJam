@@ -1,25 +1,43 @@
-[gd_scene load_steps=24 format=3 uid="uid://c3ckeg1704ygg"]
+[gd_scene load_steps=37 format=3 uid="uid://c3ckeg1704ygg"]
 
 [ext_resource type="Script" path="res://Scripts/Root.gd" id="1_wryjm"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="2_k4ite"]
-[ext_resource type="Theme" uid="uid://jxo2j54d0arj" path="res://Resources/MainTheme.tres" id="2_vjmxk"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/time.gdshader" id="2_r81ov"]
+[ext_resource type="Theme" uid="uid://jxo2j54d0arj" path="res://Resources/Themes/MainTheme.tres" id="2_vjmxk"]
 [ext_resource type="PackedScene" uid="uid://d0srgmut0o264" path="res://Nodes/plant_pot.tscn" id="3_dha6k"]
 [ext_resource type="PackedScene" uid="uid://duq17yn88lsoy" path="res://Nodes/plant_pot_2.tscn" id="4_mg7d6"]
 [ext_resource type="PackedScene" uid="uid://cfh3s0kbq468s" path="res://Nodes/plant_pot_3.tscn" id="5_0r67b"]
 [ext_resource type="Script" path="res://Scripts/Table.gd" id="6_0ocbx"]
 [ext_resource type="PackedScene" uid="uid://dqm25royj5d56" path="res://Nodes/plant_pot_4.tscn" id="6_77l7h"]
+[ext_resource type="PackedScene" uid="uid://cm7x4pqx3tn1i" path="res://Nodes/plant_pot_5.tscn" id="7_nngpc"]
 [ext_resource type="Texture2D" uid="uid://d2238qg8td0td" path="res://Assets/Art/scene.png" id="8_bvwbh"]
+[ext_resource type="PackedScene" uid="uid://deoyv2tfyhxqj" path="res://Nodes/plant_pot_6.tscn" id="8_itjec"]
+[ext_resource type="PackedScene" uid="uid://c1pl7q0ja0pus" path="res://Nodes/plant_pot_7.tscn" id="9_2jacx"]
+[ext_resource type="Texture2D" uid="uid://deibxi3srosfe" path="res://Assets/Art/Pots/pot-1.png" id="10_4ot70"]
 [ext_resource type="PackedScene" uid="uid://b38oiqsc4vjwy" path="res://Nodes/plant.tscn" id="10_dlinh"]
-[ext_resource type="Texture2D" uid="uid://dgcu4yyo4as0" path="res://Assets/Art/Dummies/fertilizer.png" id="10_n4ued"]
-[ext_resource type="Texture2D" uid="uid://biwnsr02664kt" path="res://Assets/Art/Dummies/watercan.png" id="11_bmpav"]
-[ext_resource type="Script" path="res://Scripts/WateringCan.gd" id="11_iqlia"]
+[ext_resource type="PackedScene" uid="uid://uabde3wb14uy" path="res://Nodes/plant_pot_8.tscn" id="10_qs7up"]
+[ext_resource type="Texture2D" uid="uid://bdcwuq7y0ue1c" path="res://Assets/Art/Pots/pot-4.png" id="11_mk0lx"]
+[ext_resource type="PackedScene" uid="uid://gaau4d8a05c0" path="res://Nodes/plant_pot_9.tscn" id="11_tffjp"]
+[ext_resource type="Texture2D" uid="uid://df73gnqu7mqrh" path="res://Assets/Art/Pots/pot-8.png" id="12_caw33"]
+[ext_resource type="PackedScene" uid="uid://cohr3kujorbsj" path="res://Nodes/plant_pot_10.tscn" id="12_g2ins"]
+[ext_resource type="Texture2D" uid="uid://deor6fjgjwyax" path="res://Assets/Art/Pots/pot-3.png" id="13_if650"]
+[ext_resource type="PackedScene" uid="uid://bea2q7m5dwco1" path="res://Nodes/plant_pot_11.tscn" id="13_ixik0"]
 [ext_resource type="Script" path="res://Scripts/Customers.gd" id="13_sfrjq"]
 [ext_resource type="Resource" uid="uid://ct86j1prlrcf4" path="res://Resources/Requests/test.tres" id="14_4lit3"]
+[ext_resource type="Texture2D" uid="uid://c31tvg1xnqpq8" path="res://Assets/Art/Pots/pot-9.png" id="14_hoqc8"]
 [ext_resource type="PackedScene" uid="uid://cu8nhynctn34o" path="res://Nodes/customer.tscn" id="15_shs8v"]
+[ext_resource type="AudioStream" uid="uid://di07vxnbxh74g" path="res://Assets/Audio/Music/Moonlit_Blossoms.ogg" id="17_swupm"]
+[ext_resource type="Script" path="res://Scripts/VolumeSlider.gd" id="26_nr4b5"]
+[ext_resource type="AudioStream" uid="uid://buc40cvxsnh7b" path="res://Assets/Audio/Music/Pruning_Petals_Loop.ogg" id="27_rgr4j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ajwoo"]
+shader = ExtResource("2_r81ov")
+shader_parameter/brightness = 1.0
+shader_parameter/night = 0.0
 
 [sub_resource type="Gradient" id="Gradient_d3rph"]
-offsets = PackedFloat32Array(0.603896, 0.62987, 0.662338)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0.603896, 0.637602, 0.662338)
+colors = PackedColorArray(1, 1, 1, 1, 0.564706, 0.337255, 0.164706, 1, 0.564706, 0.337255, 0.164706, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1sfet"]
 gradient = SubResource("Gradient_d3rph")
@@ -29,46 +47,63 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Gradient" id="Gradient_urfne"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
+offsets = PackedFloat32Array(0.702997, 0.776567)
+colors = PackedColorArray(0.0997123, 0.0910771, 0.0802807, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_a4bht"]
 gradient = SubResource("Gradient_urfne")
 width = 6
 height = 34
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Gradient" id="Gradient_duyoe"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
+offsets = PackedFloat32Array(0.645777, 1)
+colors = PackedColorArray(0.136826, 0.136826, 0.136826, 1, 0.137255, 0.137255, 0.137255, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hdch2"]
 gradient = SubResource("Gradient_duyoe")
 width = 4
 height = 52
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_qcrin"]
-radius = 51.6236
+fill = 1
+fill_from = Vector2(0.5, 0.75)
 
 [node name="Main" type="Node"]
 process_mode = 3
 script = ExtResource("1_wryjm")
 
+[node name="Shader" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="Time" type="ColorRect" parent="Shader" groups=["TimeShader"]]
+material = SubResource("ShaderMaterial_ajwoo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="Game" type="CanvasLayer" parent="."]
 process_mode = 1
 layer = -1
 script = ExtResource("2_k4ite")
-potIns = Array[PackedScene]([ExtResource("3_dha6k"), ExtResource("4_mg7d6"), ExtResource("5_0r67b"), ExtResource("6_77l7h")])
+potIns = Array[PackedScene]([ExtResource("3_dha6k"), ExtResource("4_mg7d6"), ExtResource("5_0r67b"), ExtResource("6_77l7h"), ExtResource("7_nngpc"), ExtResource("8_itjec"), ExtResource("9_2jacx"), ExtResource("10_qs7up"), ExtResource("11_tffjp"), ExtResource("12_g2ins"), ExtResource("13_ixik0")])
 plantIns = Array[PackedScene]([ExtResource("10_dlinh")])
+dayMusic = Array[AudioStream]([ExtResource("27_rgr4j")])
+nightMusic = Array[AudioStream]([ExtResource("17_swupm")])
 
 [node name="Background" type="Sprite2D" parent="Game"]
 position = Vector2(960, 540)
 texture = ExtResource("8_bvwbh")
 
 [node name="Day" type="Label" parent="Game"]
-offset_left = 193.0
-offset_top = 15.0
-offset_right = 305.0
-offset_bottom = 70.0
+offset_left = 25.0
+offset_top = 311.0
+offset_right = 137.0
+offset_bottom = 366.0
+theme = ExtResource("2_vjmxk")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.439216)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
@@ -77,7 +112,9 @@ theme_override_font_sizes/font_size = 40
 text = "DAY 1"
 
 [node name="Clock" type="Sprite2D" parent="Game"]
-position = Vector2(224, 246)
+position = Vector2(76, 212)
+rotation = 0.349066
+skew = -0.349066
 texture = SubResource("GradientTexture2D_1sfet")
 
 [node name="Hour" type="Sprite2D" parent="Game/Clock"]
@@ -88,16 +125,6 @@ offset = Vector2(0, -14)
 texture = SubResource("GradientTexture2D_hdch2")
 offset = Vector2(0, -24)
 
-[node name="Fertilizer" type="Sprite2D" parent="Game"]
-position = Vector2(1221, 331)
-scale = Vector2(0.505525, 0.504808)
-texture = ExtResource("10_n4ued")
-
-[node name="Fertilizer2" type="Sprite2D" parent="Game"]
-position = Vector2(1312, 334)
-scale = Vector2(0.505525, 0.504808)
-texture = ExtResource("10_n4ued")
-
 [node name="Control" type="Control" parent="Game"]
 layout_mode = 3
 anchors_preset = 15
@@ -107,45 +134,65 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_vjmxk")
 
-[node name="Pot1" type="Button" parent="Game/Control"]
+[node name="Pot1" type="TextureButton" parent="Game/Control"]
 layout_mode = 0
-offset_left = 1046.0
-offset_top = 80.0
-offset_right = 1175.0
-offset_bottom = 200.0
-text = "POT1"
+offset_left = 1088.0
+offset_top = 100.0
+offset_right = 1340.0
+offset_bottom = 252.0
+scale = Vector2(0.6, 0.6)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("10_4ot70")
 
-[node name="Pot5" type="Button" parent="Game/Control"]
+[node name="seed" type="Button" parent="Game/Control"]
 layout_mode = 0
 offset_left = 1174.0
 offset_top = 391.0
 offset_right = 1277.0
 offset_bottom = 451.0
-text = "SEED1"
+mouse_default_cursor_shape = 2
+text = "SEEDS"
+flat = true
 
-[node name="Pot2" type="Button" parent="Game/Control"]
+[node name="Pot2" type="TextureButton" parent="Game/Control"]
 layout_mode = 0
-offset_left = 1192.0
-offset_top = 76.0
-offset_right = 1321.0
-offset_bottom = 196.0
-text = "POT2"
+offset_left = 1244.0
+offset_top = 82.0
+offset_right = 1496.0
+offset_bottom = 272.0
+scale = Vector2(0.6, 0.6)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("11_mk0lx")
 
-[node name="Pot3" type="Button" parent="Game/Control"]
+[node name="Pot3" type="TextureButton" parent="Game/Control"]
 layout_mode = 0
-offset_left = 1341.0
-offset_top = 76.0
-offset_right = 1470.0
-offset_bottom = 196.0
-text = "POT3"
+offset_left = 1380.0
+offset_top = 87.0
+offset_right = 1632.0
+offset_bottom = 269.0
+scale = Vector2(0.6, 0.6)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("12_caw33")
 
-[node name="Pot4" type="Button" parent="Game/Control"]
+[node name="Pot4" type="TextureButton" parent="Game/Control"]
 layout_mode = 0
-offset_left = 1491.0
-offset_top = 80.0
-offset_right = 1620.0
-offset_bottom = 200.0
-text = "POT4"
+offset_left = 1526.0
+offset_top = 87.0
+offset_right = 1778.0
+offset_bottom = 271.0
+scale = Vector2(0.6, 0.6)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("13_if650")
+
+[node name="Pot5" type="TextureButton" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1666.0
+offset_top = 136.0
+offset_right = 1980.0
+offset_bottom = 235.0
+scale = Vector2(0.6, 0.6)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("14_hoqc8")
 
 [node name="Button" type="Button" parent="Game/Control"]
 layout_mode = 0
@@ -153,96 +200,31 @@ offset_left = 22.0
 offset_top = 13.0
 offset_right = 140.0
 offset_bottom = 106.0
+mouse_default_cursor_shape = 2
 text = "PAUSE"
 
-[node name="WateringCan" type="TextureButton" parent="Game/Control"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 1095.0
-offset_top = 495.0
-offset_right = 1465.0
-offset_bottom = 915.0
-pivot_offset = Vector2(185, 210)
-texture_normal = ExtResource("11_bmpav")
-stretch_mode = 4
-script = ExtResource("11_iqlia")
-
-[node name="Water" type="Area2D" parent="Game/Control/WateringCan"]
-position = Vector2(205, 205)
-
-[node name="Shape" type="CollisionShape2D" parent="Game/Control/WateringCan/Water"]
-shape = SubResource("CircleShape2D_qcrin")
-
-[node name="Sprite2D" type="Sprite2D" parent="Game/Control/WateringCan"]
-position = Vector2(211, 207)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("11_bmpav")
+[node name="TimeSpeed" type="TabBar" parent="Game/Control"]
+offset_left = 33.0
+offset_top = 272.0
+offset_right = 125.0
+offset_bottom = 313.0
+theme_override_font_sizes/font_size = 24
+tab_count = 3
+tab_0/title = "1x"
+tab_1/title = "2x"
+tab_2/title = "4x"
 
 [node name="Customers" type="Control" parent="Game/Control"]
 anchors_preset = 0
-offset_left = 9.0
-offset_top = 187.0
-offset_right = 538.0
-offset_bottom = 739.0
+offset_left = 1392.0
+offset_top = 219.0
+offset_right = 2110.0
+offset_bottom = 771.0
 script = ExtResource("13_sfrjq")
 requests = Array[Resource("res://Scripts/Request.gd")]([ExtResource("14_4lit3")])
 customer = ExtResource("15_shs8v")
 
 [node name="SortedObjects" type="Node2D" parent="Game"]
-
-[node name="Table" type="Area2D" parent="." groups=["Table"]]
-script = ExtResource("6_0ocbx")
-depthBack = 0.6
-
-[node name="poly" type="CollisionPolygon2D" parent="Table"]
-position = Vector2(-16, 85)
-polygon = PackedVector2Array(-71, 846, 1968, 849, 1959, 715, 155, 715)
-
-[node name="LightTable" type="Area2D" parent="." groups=["Table"]]
-script = ExtResource("6_0ocbx")
-depthFront = 0.9
-depthBack = 0.95
-
-[node name="poly" type="CollisionPolygon2D" parent="LightTable"]
-position = Vector2(93, -203)
-polygon = PackedVector2Array(290, 941, 922, 947, 843, 887, 386, 887)
-
-[node name="LightTable2" type="Area2D" parent="." groups=["Table"]]
-script = ExtResource("6_0ocbx")
-depthFront = 0.9
-depthBack = 0.95
-
-[node name="poly" type="CollisionPolygon2D" parent="LightTable2"]
-position = Vector2(80, -450)
-polygon = PackedVector2Array(349, 930, 879, 931, 868, 902, 403, 903)
-
-[node name="NightTable" type="Area2D" parent="." groups=["Table"]]
-script = ExtResource("6_0ocbx")
-depthFront = 0.9
-depthBack = 0.95
-
-[node name="poly" type="CollisionPolygon2D" parent="NightTable"]
-position = Vector2(1077, -375)
-polygon = PackedVector2Array(446, 951, 724, 951, 627, 929, 443, 930)
-
-[node name="WaterTable" type="Area2D" parent="." groups=["Table"]]
-position = Vector2(-420, 230)
-script = ExtResource("6_0ocbx")
-depthFront = 0.9
-depthBack = 0.95
-
-[node name="poly" type="CollisionPolygon2D" parent="WaterTable"]
-position = Vector2(1080, -363)
-polygon = PackedVector2Array(522, 913, 795, 913, 746, 864, 519, 866)
-
-[node name="NightTable2" type="Area2D" parent="." groups=["Table"]]
-script = ExtResource("6_0ocbx")
-depthFront = 0.9
-depthBack = 0.95
-
-[node name="poly" type="CollisionPolygon2D" parent="NightTable2"]
-position = Vector2(1068, -129)
-polygon = PackedVector2Array(458, 907, 735, 906, 636, 857, 453, 863)
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 10
@@ -257,27 +239,128 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.223529)
 
 [node name="Panel" type="Panel" parent="Pause"]
-offset_left = 786.0
-offset_top = 307.0
-offset_right = 1091.0
-offset_bottom = 758.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.5
+offset_top = -163.5
+offset_right = 152.5
+offset_bottom = 163.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_vjmxk")
 
 [node name="Button" type="Button" parent="Pause/Panel"]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 25.0
-offset_right = 270.0
-offset_bottom = 107.0
+offset_left = 30.0
+offset_top = 68.0
+offset_right = 269.0
+offset_bottom = 150.0
 text = "RESUME"
 
+[node name="MusicVolume" type="HSlider" parent="Pause/Panel"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 189.0
+offset_right = 265.0
+offset_bottom = 205.0
+max_value = 1.0
+step = 0.1
+value = 0.5
+script = ExtResource("26_nr4b5")
+busName = "Music"
+
+[node name="Label" type="Label" parent="Pause/Panel/MusicVolume"]
+layout_mode = 0
+offset_left = -87.0
+offset_top = -7.0
+offset_right = -11.0
+offset_bottom = 26.0
+text = "MUSIC"
+
+[node name="MusicVolume2" type="HSlider" parent="Pause/Panel"]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 226.0
+offset_right = 267.0
+offset_bottom = 242.0
+max_value = 1.0
+step = 0.1
+value = 0.5
+script = ExtResource("26_nr4b5")
+busName = "SFX"
+
+[node name="Label" type="Label" parent="Pause/Panel/MusicVolume2"]
+layout_mode = 0
+offset_left = -87.0
+offset_top = -7.0
+offset_right = -11.0
+offset_bottom = 26.0
+text = "SFX
+"
+horizontal_alignment = 2
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." groups=["MusicPlayer"]]
+stream = ExtResource("27_rgr4j")
+autoplay = true
+bus = &"Music"
+
+[node name="Table" type="Area2D" parent="." groups=["Table"]]
+script = ExtResource("6_0ocbx")
+depthBack = 0.6
+
+[node name="poly" type="CollisionPolygon2D" parent="Table"]
+position = Vector2(-16, 85)
+polygon = PackedVector2Array(-87, 851, 1971, 851, 1957, 718, 155, 720)
+
+[node name="LightTable" type="Area2D" parent="." groups=["Table"]]
+script = ExtResource("6_0ocbx")
+depthFront = 0.9
+depthBack = 0.925
+
+[node name="poly" type="CollisionPolygon2D" parent="LightTable"]
+polygon = PackedVector2Array(389, 744, 1008, 746, 936, 689, 475, 690)
+
+[node name="LightTable2" type="Area2D" parent="." groups=["Table"]]
+script = ExtResource("6_0ocbx")
+depthFront = 0.925
+depthBack = 0.95
+
+[node name="poly" type="CollisionPolygon2D" parent="LightTable2"]
+polygon = PackedVector2Array(452, 481, 941, 483, 935, 456, 481, 457)
+
+[node name="NightTable" type="Area2D" parent="." groups=["Table"]]
+script = ExtResource("6_0ocbx")
+depthFront = 0.925
+depthBack = 0.95
+
+[node name="poly" type="CollisionPolygon2D" parent="NightTable"]
+polygon = PackedVector2Array(1566, 581, 1765, 579, 1707, 561, 1516, 560)
+
+[node name="WaterTable" type="Area2D" parent="." groups=["Table"]]
+script = ExtResource("6_0ocbx")
+depthFront = 0.9
+depthBack = 0.925
+
+[node name="poly" type="CollisionPolygon2D" parent="WaterTable"]
+polygon = PackedVector2Array(1211, 782, 1442, 782, 1400, 740, 1185, 743)
+
+[node name="NightTable2" type="Area2D" parent="." groups=["Table"]]
+script = ExtResource("6_0ocbx")
+depthFront = 0.9
+depthBack = 0.925
+
+[node name="poly" type="CollisionPolygon2D" parent="NightTable2"]
+polygon = PackedVector2Array(1583, 781, 1767, 780, 1695, 742, 1525, 745)
+
 [connection signal="button_down" from="Game/Control/Pot1" to="Game" method="SpawnPot" binds= [0]]
-[connection signal="button_down" from="Game/Control/Pot5" to="Game" method="SpawnPlant" binds= [0]]
+[connection signal="button_down" from="Game/Control/seed" to="Game" method="SpawnPlant" binds= [0]]
 [connection signal="button_down" from="Game/Control/Pot2" to="Game" method="SpawnPot" binds= [1]]
 [connection signal="button_down" from="Game/Control/Pot3" to="Game" method="SpawnPot" binds= [2]]
 [connection signal="button_down" from="Game/Control/Pot4" to="Game" method="SpawnPot" binds= [3]]
+[connection signal="button_down" from="Game/Control/Pot5" to="Game" method="SpawnPot" binds= [4]]
 [connection signal="pressed" from="Game/Control/Button" to="." method="TogglePause"]
-[connection signal="button_down" from="Game/Control/WateringCan" to="Game/Control/WateringCan" method="Pickup"]
-[connection signal="button_up" from="Game/Control/WateringCan" to="Game/Control/WateringCan" method="Drop"]
-[connection signal="area_entered" from="Game/Control/WateringCan/Water" to="Game/Control/WateringCan" method="PotEnter"]
-[connection signal="area_exited" from="Game/Control/WateringCan/Water" to="Game/Control/WateringCan" method="PotExit"]
+[connection signal="tab_selected" from="Game/Control/TimeSpeed" to="Game" method="ChangeSpeed"]
 [connection signal="pressed" from="Pause/Panel/Button" to="." method="TogglePause"]

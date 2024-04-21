@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b38oiqsc4vjwy"]
+[gd_scene load_steps=10 format=3 uid="uid://b38oiqsc4vjwy"]
 
 [ext_resource type="Script" path="res://Scripts/Plant.gd" id="1_i6y4d"]
 [ext_resource type="Texture2D" uid="uid://bsdlxiyqw0dts" path="res://Assets/Art/Dummies/plant-s-1.png" id="2_orvoy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" path="res://Scripts/Shaders/color_swap.gdshader" id="3_d8sxo"]
 [ext_resource type="Texture2D" uid="uid://3y1elxa8tum6" path="res://Assets/Art/Dummies/plant-s-2.png" id="3_gvkso"]
 [ext_resource type="Texture2D" uid="uid://b5ndnwhv368yy" path="res://Assets/Art/Dummies/plant-s-3.png" id="4_vxbt7"]
+[ext_resource type="Resource" uid="uid://cn7j3fxj86b44" path="res://Resources/Conditions/Test.tres" id="6_jrbwd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3nkvl"]
 resource_local_to_scene = true
@@ -20,6 +21,7 @@ radius = 7.61577
 script = ExtResource("1_i6y4d")
 stages = Array[Texture]([ExtResource("2_orvoy"), ExtResource("3_gvkso"), ExtResource("4_vxbt7")])
 blossom = ExtResource("3_8rgfk")
+growConditions = ExtResource("6_jrbwd")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -1.81899e-12)
