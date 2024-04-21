@@ -1,0 +1,26 @@
+[gd_scene load_steps=8 format=3 uid="uid://brpgf3l8q8gqx"]
+
+[ext_resource type="Script" path="res://Scripts/Plant.gd" id="1_ef2d2"]
+[ext_resource type="Texture2D" uid="uid://c8065skroj2up" path="res://Assets/Art/Plants/seedling-1.png" id="2_iri0c"]
+[ext_resource type="Texture2D" uid="uid://dvjw0uhqs4ytq" path="res://Assets/Art/Plants/seedling-3.png" id="2_ukphw"]
+[ext_resource type="Texture2D" uid="uid://1x0qj743h0dt" path="res://Assets/Art/Plants/young-3.png" id="3_d6wdx"]
+[ext_resource type="Texture2D" uid="uid://c1wlwgdtthi1w" path="res://Assets/Art/Plants/mature-6.png" id="4_xa3f7"]
+[ext_resource type="Resource" uid="uid://cn7j3fxj86b44" path="res://Resources/Conditions/Test.tres" id="5_tgb3q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hgt1q"]
+radius = 7.61577
+
+[node name="Plant" type="Area2D" groups=["Plant"]]
+script = ExtResource("1_ef2d2")
+stages = Array[Texture]([ExtResource("2_ukphw"), ExtResource("3_d6wdx"), ExtResource("4_xa3f7")])
+growConditions = ExtResource("5_tgb3q")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_iri0c")
+offset = Vector2(0, -100)
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_hgt1q")

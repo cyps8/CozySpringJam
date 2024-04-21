@@ -1,39 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://b38oiqsc4vjwy"]
+[gd_scene load_steps=7 format=3 uid="uid://b38oiqsc4vjwy"]
 
 [ext_resource type="Script" path="res://Scripts/Plant.gd" id="1_i6y4d"]
-[ext_resource type="Texture2D" uid="uid://bsdlxiyqw0dts" path="res://Assets/Art/Dummies/plant-s-1.png" id="2_orvoy"]
-[ext_resource type="Texture2D" uid="uid://ekvtmx7tnq1i" path="res://Assets/Art/Dummies/plant-s-3-blossom.png" id="3_8rgfk"]
-[ext_resource type="Shader" path="res://Scripts/Shaders/color_swap.gdshader" id="3_d8sxo"]
-[ext_resource type="Texture2D" uid="uid://3y1elxa8tum6" path="res://Assets/Art/Dummies/plant-s-2.png" id="3_gvkso"]
-[ext_resource type="Texture2D" uid="uid://b5ndnwhv368yy" path="res://Assets/Art/Dummies/plant-s-3.png" id="4_vxbt7"]
+[ext_resource type="Texture2D" uid="uid://c8065skroj2up" path="res://Assets/Art/Plants/seedling-1.png" id="2_6l64e"]
+[ext_resource type="Texture2D" uid="uid://dp2gec03toh17" path="res://Assets/Art/Plants/young-1.png" id="3_yw5oy"]
+[ext_resource type="Texture2D" uid="uid://cw8sa58irn52k" path="res://Assets/Art/Plants/mature-1.png" id="4_s324e"]
 [ext_resource type="Resource" uid="uid://cn7j3fxj86b44" path="res://Resources/Conditions/Test.tres" id="6_jrbwd"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nkvl"]
-resource_local_to_scene = true
-shader = ExtResource("3_d8sxo")
-shader_parameter/color = Color(1, 0.639216, 1, 1)
-shader_parameter/colder_shadows = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hgt1q"]
 radius = 7.61577
 
 [node name="Plant" type="Area2D" groups=["Plant"]]
 script = ExtResource("1_i6y4d")
-stages = Array[Texture]([ExtResource("2_orvoy"), ExtResource("3_gvkso"), ExtResource("4_vxbt7")])
-blossom = ExtResource("3_8rgfk")
+stages = Array[Texture]([ExtResource("2_6l64e"), ExtResource("3_yw5oy"), ExtResource("4_s324e")])
 growConditions = ExtResource("6_jrbwd")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -1.81899e-12)
+position = Vector2(0, -7)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_orvoy")
-offset = Vector2(0, -160)
-
-[node name="Blossom" type="Sprite2D" parent="Sprite"]
-visible = false
-material = SubResource("ShaderMaterial_3nkvl")
-texture = ExtResource("3_8rgfk")
-offset = Vector2(0, -160)
+texture = ExtResource("2_6l64e")
+offset = Vector2(0, -100)
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)

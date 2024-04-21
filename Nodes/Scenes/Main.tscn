@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c3ckeg1704ygg"]
+[gd_scene load_steps=50 format=3 uid="uid://c3ckeg1704ygg"]
 
 [ext_resource type="Script" path="res://Scripts/Root.gd" id="1_wryjm"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="2_k4ite"]
@@ -26,10 +26,21 @@
 [ext_resource type="Resource" uid="uid://ct86j1prlrcf4" path="res://Resources/Requests/test.tres" id="14_4lit3"]
 [ext_resource type="Texture2D" uid="uid://c31tvg1xnqpq8" path="res://Assets/Art/Pots/pot-9.png" id="14_hoqc8"]
 [ext_resource type="PackedScene" uid="uid://cu8nhynctn34o" path="res://Nodes/customer.tscn" id="15_shs8v"]
+[ext_resource type="PackedScene" uid="uid://cf1rp4erdnskg" path="res://Nodes/plant_2.tscn" id="16_e1fyu"]
+[ext_resource type="PackedScene" uid="uid://bds74wp0ukfql" path="res://Nodes/plant_3.tscn" id="17_cun68"]
 [ext_resource type="AudioStream" uid="uid://di07vxnbxh74g" path="res://Assets/Audio/Music/Moonlit_Blossoms.ogg" id="17_swupm"]
+[ext_resource type="PackedScene" uid="uid://caj5fei2hipo6" path="res://Nodes/plant_4.tscn" id="18_i6pbu"]
+[ext_resource type="PackedScene" uid="uid://btibnc8cht4ce" path="res://Nodes/plant_5.tscn" id="19_vn0xn"]
+[ext_resource type="PackedScene" uid="uid://brpgf3l8q8gqx" path="res://Nodes/plant_6.tscn" id="20_cd4le"]
+[ext_resource type="PackedScene" uid="uid://dcyo3amivaexo" path="res://Nodes/plant_7.tscn" id="21_527uo"]
+[ext_resource type="PackedScene" uid="uid://b4u2qws3yr3gt" path="res://Nodes/plant_8.tscn" id="22_a1467"]
+[ext_resource type="PackedScene" uid="uid://yuwi8jdiss3e" path="res://Nodes/plant_9.tscn" id="23_hw5bl"]
 [ext_resource type="Script" path="res://Scripts/VolumeSlider.gd" id="26_nr4b5"]
 [ext_resource type="AudioStream" uid="uid://buc40cvxsnh7b" path="res://Assets/Audio/Music/Pruning_Petals_Loop.ogg" id="27_rgr4j"]
+[ext_resource type="Texture2D" uid="uid://bvwm2y5c3ssxe" path="res://Assets/Art/fertilizer.png" id="28_rtncq"]
 [ext_resource type="Texture2D" uid="uid://edlcw3m2pj5x" path="res://Assets/Art/Shelf/warm-lamp.png" id="30_82ayk"]
+[ext_resource type="Texture2D" uid="uid://7iyx2uq0l3gu" path="res://Assets/Art/scene-shelf-cover.png" id="38_bh4cl"]
+[ext_resource type="Script" path="res://Scripts/Depth.gd" id="39_xma7b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ajwoo"]
 shader = ExtResource("2_r81ov")
@@ -92,7 +103,7 @@ process_mode = 1
 layer = -1
 script = ExtResource("2_k4ite")
 potIns = Array[PackedScene]([ExtResource("3_dha6k"), ExtResource("4_mg7d6"), ExtResource("5_0r67b"), ExtResource("6_77l7h"), ExtResource("7_nngpc"), ExtResource("8_itjec"), ExtResource("9_2jacx"), ExtResource("10_qs7up"), ExtResource("11_tffjp"), ExtResource("12_g2ins"), ExtResource("13_ixik0")])
-plantIns = Array[PackedScene]([ExtResource("10_dlinh")])
+plantIns = Array[PackedScene]([ExtResource("10_dlinh"), ExtResource("16_e1fyu"), ExtResource("17_cun68"), ExtResource("18_i6pbu"), ExtResource("19_vn0xn"), ExtResource("20_cd4le"), ExtResource("21_527uo"), ExtResource("22_a1467"), ExtResource("23_hw5bl")])
 dayMusic = Array[AudioStream]([ExtResource("27_rgr4j")])
 nightMusic = Array[AudioStream]([ExtResource("17_swupm")])
 
@@ -104,6 +115,16 @@ texture = ExtResource("8_bvwbh")
 [node name="Warm-lamp" type="Sprite2D" parent="Game"]
 position = Vector2(1651, 395)
 texture = ExtResource("30_82ayk")
+
+[node name="Fertilizer" type="Sprite2D" parent="Game"]
+position = Vector2(1215, 342)
+scale = Vector2(0.389423, 0.389423)
+texture = ExtResource("28_rtncq")
+
+[node name="Fertilizer2" type="Sprite2D" parent="Game"]
+position = Vector2(1265, 354)
+scale = Vector2(0.259479, 0.259479)
+texture = ExtResource("28_rtncq")
 
 [node name="Day" type="Label" parent="Game"]
 offset_left = 25.0
@@ -156,16 +177,128 @@ texture_normal = ExtResource("10_4ot70")
 
 [node name="seed" type="Button" parent="Game/Control"]
 layout_mode = 0
-offset_left = 1174.0
-offset_top = 391.0
-offset_right = 1277.0
-offset_bottom = 451.0
+offset_left = 1176.0
+offset_top = 394.0
+offset_right = 1276.0
+offset_bottom = 450.0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 0.898039, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_612ch")
-text = "SEEDS"
+text = "SEED1"
+flat = true
+
+[node name="seed2" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1275.0
+offset_top = 396.0
+offset_right = 1369.0
+offset_bottom = 450.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898039, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_612ch")
+text = "SEED2"
+flat = true
+
+[node name="seed3" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1369.0
+offset_top = 397.0
+offset_right = 1456.0
+offset_bottom = 450.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898039, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_612ch")
+text = "SEED3"
+flat = true
+
+[node name="seed4" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1184.0
+offset_top = 465.0
+offset_right = 1271.0
+offset_bottom = 518.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898039, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_612ch")
+text = "SEED4"
+flat = true
+
+[node name="seed5" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1277.0
+offset_top = 466.0
+offset_right = 1364.0
+offset_bottom = 519.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898039, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_612ch")
+text = "SEED5"
+flat = true
+
+[node name="seed6" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1369.0
+offset_top = 466.0
+offset_right = 1456.0
+offset_bottom = 519.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898039, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_612ch")
+text = "SEED6"
+flat = true
+
+[node name="seed7" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1183.0
+offset_top = 531.0
+offset_right = 1270.0
+offset_bottom = 584.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898039, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_612ch")
+text = "SEED7"
+flat = true
+
+[node name="seed8" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1279.0
+offset_top = 532.0
+offset_right = 1366.0
+offset_bottom = 585.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898039, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_612ch")
+text = "SEED8"
+flat = true
+
+[node name="seed9" type="Button" parent="Game/Control"]
+layout_mode = 0
+offset_left = 1369.0
+offset_top = 532.0
+offset_right = 1456.0
+offset_bottom = 585.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.898039, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_612ch")
+text = "SEED9"
 flat = true
 
 [node name="Pot2" type="TextureButton" parent="Game/Control"]
@@ -218,6 +351,7 @@ mouse_default_cursor_shape = 2
 text = "PAUSE"
 
 [node name="TimeSpeed" type="TabBar" parent="Game/Control"]
+layout_mode = 0
 offset_left = 33.0
 offset_top = 272.0
 offset_right = 125.0
@@ -234,11 +368,18 @@ offset_left = 1392.0
 offset_top = 219.0
 offset_right = 2110.0
 offset_bottom = 771.0
+mouse_filter = 2
 script = ExtResource("13_sfrjq")
 requests = Array[Resource("res://Scripts/Request.gd")]([ExtResource("14_4lit3")])
 customer = ExtResource("15_shs8v")
 
 [node name="SortedObjects" type="Node2D" parent="Game"]
+
+[node name="Scene-shelf-cover" type="Sprite2D" parent="Game/SortedObjects"]
+position = Vector2(1461, 493)
+texture = ExtResource("38_bh4cl")
+script = ExtResource("39_xma7b")
+depth = 0.5
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 10
@@ -351,7 +492,7 @@ depthFront = 0.925
 depthBack = 0.95
 
 [node name="poly" type="CollisionPolygon2D" parent="NightTable"]
-polygon = PackedVector2Array(1566, 581, 1765, 579, 1707, 561, 1516, 560)
+polygon = PackedVector2Array(1566, 581, 1765, 579, 1707, 561, 1541, 561)
 
 [node name="WaterTable" type="Area2D" parent="." groups=["Table"]]
 script = ExtResource("6_0ocbx")
@@ -359,7 +500,7 @@ depthFront = 0.9
 depthBack = 0.925
 
 [node name="poly" type="CollisionPolygon2D" parent="WaterTable"]
-polygon = PackedVector2Array(1211, 782, 1442, 782, 1400, 740, 1185, 743)
+polygon = PackedVector2Array(1211, 782, 1442, 782, 1400, 740, 1187, 742)
 
 [node name="NightTable2" type="Area2D" parent="." groups=["Table"]]
 script = ExtResource("6_0ocbx")
@@ -367,10 +508,18 @@ depthFront = 0.9
 depthBack = 0.925
 
 [node name="poly" type="CollisionPolygon2D" parent="NightTable2"]
-polygon = PackedVector2Array(1583, 781, 1767, 780, 1695, 742, 1525, 745)
+polygon = PackedVector2Array(1583, 781, 1767, 780, 1695, 742, 1538, 745)
 
 [connection signal="button_down" from="Game/Control/Pot1" to="Game" method="SpawnPot" binds= [0]]
 [connection signal="button_down" from="Game/Control/seed" to="Game" method="SpawnPlant" binds= [0]]
+[connection signal="button_down" from="Game/Control/seed2" to="Game" method="SpawnPlant" binds= [1]]
+[connection signal="button_down" from="Game/Control/seed3" to="Game" method="SpawnPlant" binds= [2]]
+[connection signal="button_down" from="Game/Control/seed4" to="Game" method="SpawnPlant" binds= [3]]
+[connection signal="button_down" from="Game/Control/seed5" to="Game" method="SpawnPlant" binds= [4]]
+[connection signal="button_down" from="Game/Control/seed6" to="Game" method="SpawnPlant" binds= [5]]
+[connection signal="button_down" from="Game/Control/seed7" to="Game" method="SpawnPlant" binds= [6]]
+[connection signal="button_down" from="Game/Control/seed8" to="Game" method="SpawnPlant" binds= [7]]
+[connection signal="button_down" from="Game/Control/seed9" to="Game" method="SpawnPlant" binds= [8]]
 [connection signal="button_down" from="Game/Control/Pot2" to="Game" method="SpawnPot" binds= [1]]
 [connection signal="button_down" from="Game/Control/Pot3" to="Game" method="SpawnPot" binds= [2]]
 [connection signal="button_down" from="Game/Control/Pot4" to="Game" method="SpawnPot" binds= [3]]

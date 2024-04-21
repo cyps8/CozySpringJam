@@ -43,7 +43,7 @@ func _process(dt):
 	else:
 		$Shadow.visible = false
 
-	if stage >= 0 && stage < 3 && plantRef:
+	if stage >= 0 && stage < 2 && plantRef:
 		TryGrow(dt)
 		UpdateStage()
 
@@ -51,20 +51,15 @@ func UpdateStage():
 	match stage:
 		0:
 			if conditionsMet:
-				$Stage.texture = stages[1]
-			else:
-				$Stage.texture = stages[0]
-		1:
-			if conditionsMet:
 				$Stage.texture = stages[3]
 			else:
 				$Stage.texture = stages[2]
-		2:
+		1:
 			if conditionsMet:
 				$Stage.texture = stages[5]
 			else:
 				$Stage.texture = stages[4]
-		3:
+		2:
 			$Stage.texture = stages[6]
 
 func TryGrow(dt: float):
@@ -123,6 +118,8 @@ func TableRay():
 	else:
 		onTable = null
 		scale = Vector2(1.0, 1.0)
+		depth = 0.0
+		Game.ins.SortObjs()
 
 func UpdateScale():
 	depth = onTable.GetDepthAtHeight(global_position.y + size.y)

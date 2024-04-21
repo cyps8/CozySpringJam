@@ -132,7 +132,7 @@ func UpdateClock():
 
 func TryTakePlant() -> bool:
 	for plant in currentPlants:
-		if plant.grabbed && plant.stage == 3:
+		if plant.grabbed && plant.stage > -1:
 			plant.grabbed = false
 			plant.queue_free()
 			currentPlants.remove_at(currentPlants.find(plant))
